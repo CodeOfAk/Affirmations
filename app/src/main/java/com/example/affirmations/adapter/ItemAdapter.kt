@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.affirmations.R
@@ -14,12 +15,13 @@ import com.example.affirmations.model.Affirmation
  */
 class ItemAdapter(private val context: Context, private val dataset: List<Affirmation>): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
-    // Provide a reference to the views for each data item
+    /*// Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder.
-    // Each data item is just an Affirmation object.
+    // Each data item is just an Affirmation object.  */
     class ItemViewHolder(private val view: View): RecyclerView.ViewHolder(view){
         val txtView : TextView = view.findViewById(R.id.txtView_itemTitle)
+        val imgView : ImageView = view.findViewById(R.id.imgView_Item)
     }
 
     /**
@@ -35,8 +37,8 @@ class ItemAdapter(private val context: Context, private val dataset: List<Affirm
      */
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
-
         holder.txtView.text = context.resources.getString(item.stringResourceId)
+        holder.imgView.setImageResource(item.imageResourceId)
     }
 
     /**
